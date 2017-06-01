@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华侨城</title>
+    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <script src="zepto.min.js"></script>
+    <style>
+        body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+        html,body{font-family:"微软雅黑","宋体",Arail,Tabhoma; font-size: 12px; text-align: left; width:100%; height:100%;}
+        ul,ol{list-style: none;}
+        img{border: 0;}
+        input,select,textarea{outline:0;}
+        textarea{resize:none;}
+        a{text-decoration: none;}
+        /*///////////////////////*/
+        .myBody{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+            background:#63676f ;
+            background-image: url("img/bg.png");
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+
+        }
+        .head{
+            width:100%;
+            height:20px;
+            margin-top:28px ;
+            overflow: hidden;
+        }
+        .head-left,.head-right{
+            width:45%;
+            height:2px;
+            margin-top:9px;
+            background-color:#8e9196;
+        }
+        .head-left{
+            float:left;
+        }
+        .head-right{
+            float:right;
+        }
+        .head-center{
+            float:left;
+            width:10%;
+            height:20px;
+            background: url("img/headlogo.png") center 0  no-repeat;
+        }
+        .content{
+            width:100%;
+            /*margin-top: 38px;*/
+        }
+        .houseNameWrap{
+            width:100%;
+            overflow: hidden;
+            padding-top: 38px;
+            padding-bottom:38px;
+            border-bottom:2px dotted #ffffff;
+        }
+        .houseName,.houseImg{
+            width:100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .houseName li, .houseImg li{
+            /*display: none;*/
+            opacity: 0;
+            height:0;
+            width:100%;
+            transition: 1s ease-in-out;
+            overflow: hidden;
+            position:absolute;
+            box-sizing: border-box;
+            z-index:10;
+        }
+        .houseName{
+            height:104px;
+        }
+        .houseNameImg{
+            width:100%;
+            margin:0 auto;
+        }
+        .houseNameImg img{
+            padding-left:10%;
+        }
+        .houseImgWrap{
+            height:650px;
+            width:100%;
+            margin-top:32px;
+            position:relative;
+        }
+        .houseImg{
+            height:100%;
+            text-align: center;
+            background: #ffffff;
+        }
+        .houseImg li{
+            box-sizing: border-box;
+            padding:30px 0;
+            height:100%;
+        }
+        .houseImg img{
+            display: block;
+            margin:0 auto;
+            width:auto;
+            max-height:100%;
+        }
+        .prev,.next{
+            width:36px;
+            height:144px;
+            position: absolute;
+            top: 50%;
+            margin-top: -72px;
+            z-index:200;
+
+        }
+        .prev {background: url('img/prev.png') 0 0 no-repeat; left:0; }
+        .next {background: url('img/next.png') 0 0 no-repeat; right:0;}
+        .foot{
+            width:100%;
+            margin-top:32px;
+        }
+        .describe{
+            width:100%;
+            border-bottom:2px dotted #ffffff;
+            border-top:2px dotted #ffffff;
+            margin:0 auto ;
+            padding:80px 0;
+        }
+        .describe img{
+            display: block;
+            margin:0 auto;
+        }
+        .sign{
+            margin-top:80px;
+            text-align: center;
+        }
+        .houseImg  .houseIn, .houseName .houseIn{
+            height:100%;
+            opacity: 1;
+            z-index:100;
+        }
+    </style>
+</head>
+<body class="myBody">
+    <div class="head">
+        <div class="head-left"></div>
+        <div class="head-center"></div>
+        <div class="head-right"></div>
+    </div>
+    <div class="content">
+        <div class="houseNameWrap">
+            <ul class="houseName">
+                <li class="houseIn"><div class="houseNameImg"><img src="img/tyImg1.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg2.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg3.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg4.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg5.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg6.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg7.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg8.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg9.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg10.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg11.png" alt=""></div></li>
+                <li><div class="houseNameImg"><img src="img/tyImg12.png" alt=""></div></li>
+            </ul>
+        </div>
+        <div id="houseType" class="houseImgWrap">
+            <ul class="houseImg">
+                <li class="houseIn"><img src="img/house1.png" alt=""></li>
+                <li><img src="img/house2.png" alt=""></li>
+                <li><img src="img/house3.png" alt=""></li>
+                <li><img src="img/house4.png" alt=""></li>
+                <li><img src="img/house5.png" alt=""></li>
+                <li><img src="img/house6.png" alt=""></li>
+                <li><img src="img/house7.png" alt=""></li>
+                <li><img src="img/house8.png" alt=""></li>
+                <li><img src="img/house9.png" alt=""></li>
+                <li><img src="img/house10.png" alt=""></li>
+                <li><img src="img/house11.png" alt=""></li>
+                <li><img src="img/house12.png" alt=""></li>
+            </ul>
+            <div class="prev"></div>
+            <div class="next"></div>
+        </div>
+
+    </div>
+    <div class="foot">
+        <div class="describe">
+            <img src="img/content.png" alt="" >
+        </div>
+        <div class="sign">
+            <img src="img/logo.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        var liLength=$(".houseImg li").length;
+        var index=0;
+        function GetRequest() {
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        if(GetRequest().houseTy){
+            index=GetRequest().houseTy-1;
+            change();
+        }
+        function change(){
+            $(".houseImg li").eq(index).addClass("houseIn").siblings().removeClass("houseIn");
+            $(".houseName li").eq(index).addClass("houseIn").siblings().removeClass("houseIn");
+        }
+        $(".prev").on("touchend",function(){
+            index--;
+            if(index<0){
+                index=liLength-1;
+            }
+            change();
+        })
+        $(".next").on("touchend",function(){
+            index++;
+            if(index>=liLength){
+                index=0;
+            }
+            change();
+        })
+//        touch
+        var SWIPE_DISTANCE = 50;
+        var SWIPE_TIME = 500;
+        var point_start,
+                point_end,
+                time_start=0,
+                time_end=0;
+        //获取touch的点(兼容mouse事件)
+        var getTouchPos = function(e){
+            var touches = e.touches;
+            if(touches && touches[0]) {
+                return { x : touches[0].clientX ,
+                    y : touches[0].clientY };
+            }
+            return { x : e.clientX , y: e.clientY };
+        }
+        //计算两点之间距离
+        var getDist = function(p1 , p2){
+            if(!p1 || !p2) return 0;
+            return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+        }
+        //计算两点之间所成角度
+        var getAngle = function(p1 , p2){
+            var r = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+            var a = r * 180 / Math.PI;
+            return a;
+        };
+        //获取swipe的方向
+        var getSwipeDirection = function(p2,p1){
+            var dx = p2.x - p1.x;
+            var dy = -p2.y + p1.y;
+            var angle = Math.atan2(dy , dx) * 180 / Math.PI;
+            if(angle < 45 && angle > -45){
+                index--;
+                if(index<0){
+                    index=liLength-1;
+                }
+                change();
+            }
+            if(angle >= 45 && angle < 135) return false;
+            if(angle >= -135 && angle <= -45) return false;
+            if(angle >= 135 || angle < -135) {
+                index++;
+                if(index>=liLength){
+                    index=0;
+                }
+                change();
+            }
+        }
+        var startEvtHandler = function(e){
+            var touches = e.touches;
+            if( !touches || touches.length == 1 ){ //touches为空，代表鼠标点击
+                point_start = getTouchPos(e);
+                point_end=point_start;
+
+                time_start = Date.now();
+            }
+        }
+        var moveEvtHandler = function(e){
+            e.preventDefault();
+            point_end = getTouchPos(e);
+        }
+        var endEvtHandler = function(){
+            time_end = Date.now();
+            //距离和时间都符合
+            if(getDist(point_start,point_end) > SWIPE_DISTANCE && time_end- time_start <SWIPE_TIME){
+                console.log(index)
+                getSwipeDirection(point_end,point_start);
+
+            }
+
+        }
+        //判断是PC或者移动设备
+        var startEvt, moveEvt, endEvt;
+        if("ontouchstart" in window){
+            startEvt="touchstart";
+            moveEvt="touchmove";
+            endEvt="touchend";
+        }else{
+            startEvt="mousedown";
+            moveEvt="mousemove";
+            endEvt="mouseup";
+        }
+        var $houseImg=$(".houseImg")[0];
+        $houseImg.addEventListener(startEvt, startEvtHandler);
+        $houseImg.addEventListener(moveEvt, moveEvtHandler);
+        $houseImg.addEventListener(endEvt, endEvtHandler);
+
+    })
+
+</script>
+</html>
